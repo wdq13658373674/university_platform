@@ -8,7 +8,7 @@ var cssWrap = require('gulp-css-wrap')
 var customThemeName = '.red-theme'
 
 gulp.task('default', function() {
-  return gulp.src( path.resolve('./src/assets/red-theme.css'))
+  return gulp.src( path.resolve('./src/theme/red/index.css'))
     .pipe(cssWrap({selector: customThemeName}))
     .pipe(cleanCSS())
     .pipe(gulp.dest('dist'))

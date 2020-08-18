@@ -312,6 +312,7 @@ export default {
       .red-theme .link{
         color: $primary-red !important;
       }
+
   .uni-login{
     display:flex;
     justify-content: center;
@@ -335,8 +336,6 @@ export default {
       height:100%;
       background:$white;
       float:right;
-
-      
 
       .wx{
         height:45px;
