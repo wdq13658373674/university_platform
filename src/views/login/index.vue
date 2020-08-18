@@ -58,19 +58,9 @@
                         prop="password"
                         class="uni-input">
                             <el-input
-                              v-if="!isOpen"
                               v-model="ruleForm.password"
                               name="password"
-                              type="password"
-                              @focus="changeLabelFocus"
-                              @blur="changeLabelBlur"
-                              ></el-input>
-
-                              <el-input
-                              v-else
-                              v-model="ruleForm.password"
-                              name="text"
-                              type="text"
+                              :type="isOpen"
                               @focus="changeLabelFocus"
                               @blur="changeLabelBlur"
                               ></el-input>
@@ -167,6 +157,8 @@
 </template>
 
 <script>
+import { phoneReg } from '@/utils/regExp';
+
 export default {
   name: 'Login',
   components: {
@@ -179,7 +171,7 @@ export default {
       timerCount: 60,
       timer: null,
       isTimer: false,
-      isOpen: false,
+      isOpen: 'password',
       ruleForm: {
         name: '',
         password: '',
@@ -209,6 +201,10 @@ export default {
           {
             required: true,
             message: '请输入手机号',
+            trigger: 'blur',
+          }, {
+            pattern: phoneReg,
+            message: '手机号格式不正确',
             trigger: 'blur',
           },
         ],
@@ -263,9 +259,9 @@ export default {
         }
       });
     },
-    // 显示密码
+    // 显示隐藏密码
     showPassword() {
-      this.isOpen = !this.isOpen;
+      this.isOpen = this.isOpen === 'password' ? 'text' : 'password';
     },
     // 提交
     refer() {
