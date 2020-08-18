@@ -15,7 +15,9 @@ $printStyleSwitch:      false !default; //是否开启打印样式
 //-----------------------------------------------------	
 $baseFontSize:          14px !default;
 $baseLineHeight:        1.5 !default;
-$baseFontFamily:        "Helvetica Neue", Helvetica, Tahoma, sans-serif, "Microsoft Yahei" !default;
+$baseFontFamily:        PingFangSC, "Microsoft Yahei", Helvetica, Tahoma, Arial,
+"Hiragino Sans GB", "Hiragino Sans GB W3", STXihei, STHeiti, Heiti, SimSun,
+sans-serif !important;
 $fontCn:                "SimSun"; //宋体
 $fontYaHei:             "Microsoft Yahei"; //微软雅黑
 $fontHeiTi:             "SimHei"; //黑体
@@ -33,15 +35,14 @@ $baseGap:               20px !default;
 // opacify($color, $amount)
 // mix($color1, $color2[, $amount])
 //-----------------------------------------------------	
-$textColor:#343434;
+$primary:  #2E58FF !default;//主色
+$gray: #D4D9E2;
 $white:#fff;
 $blue_light:#369CD8;
 $blue_light2: #2868B0;
-$bodyBgColor:           $white !default;
-$gray: #e5e5e5;
 
-$primary:  #2E58FF !default;//主色
-
+$textColor:#333;
+$bodyBgColor: $white !default;
 
 // link
 //-----------------------------------------------------	
@@ -59,7 +60,7 @@ $textColor:             $grayDarker !default;
 // placeholder
 //-----------------------------------------------------	
 // 变量分别为：是否输出表单的占位符placeholder样式，文本色
-$placeholder:           true $gray !default;
+$placeholder:           true #666666 !default;
 
 
 // 交互配色
