@@ -1,6 +1,7 @@
 <template>
   <div class="uni-login">
       <div class="login-container">
+        <button @click="changeTheme">切换主题</button>
             <!--login  -->
             <div class="login-content">
                 <div class="wx">
@@ -274,6 +275,9 @@ export default {
       //   type: 'success',
       // });
     },
+    changeTheme(){
+      document.body.classList.toggle('red-theme')
+    }
   },
 };
 </script>
@@ -306,6 +310,12 @@ export default {
 </style>
 <style lang="scss" scoped>
 @import '@/assets/scss/_setting.scss';
+.red-theme .wx{
+        color:$primary-red !important;
+      }
+      .red-theme .link{
+        color: $primary-red !important;
+      }
   .uni-login{
     display:flex;
     justify-content: center;
@@ -329,6 +339,8 @@ export default {
       height:100%;
       background:$white;
       float:right;
+
+      
 
       .wx{
         height:45px;
@@ -407,6 +419,7 @@ export default {
         cursor: pointer;
         color:$primary;
       }
+      
     }
 
     .unit-bootom-img{
