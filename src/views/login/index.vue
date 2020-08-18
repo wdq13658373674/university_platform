@@ -16,7 +16,10 @@
                 </div>
 
               <!-- 电脑登陆 -->
-              <el-tabs v-model="activeName" class="uni-tabs" v-show="!isActive">
+              <el-tabs
+              v-model="activeName"
+              class="uni-tabs"
+              v-show="!isActive">
                 <!-- 密码登陆 -->
                 <el-tab-pane label="密码登陆" name="first">
                   <el-form
@@ -28,7 +31,7 @@
                   <div class="uni-input-group">
                         <span
                         class="uni-label"
-                        :class="{'active': isLabelActive == 'name'}"
+                        :class="{'active': isLabelActive == 'name' || ruleForm.name != ''}"
                         @click="inputGroupClick"
                         >身份证</span>
 
@@ -47,21 +50,36 @@
                   <div class="uni-input-group">
                         <span
                         class="uni-label"
-                        :class="{'active': isLabelActive == 'password'}"
+                        :class="{'active': isLabelActive == 'password' || ruleForm.password != ''}"
                         @click="inputGroupClick"
                         >密码</span>
 
-                        <el-form-item prop="password" class="uni-input">
+                        <el-form-item
+                        prop="password"
+                        class="uni-input">
                             <el-input
+                              v-if="!isOpen"
                               v-model="ruleForm.password"
                               name="password"
+                              type="password"
                               @focus="changeLabelFocus"
                               @blur="changeLabelBlur"
-                              >
-                        </el-input>
+                              ></el-input>
+
+                              <el-input
+                              v-else
+                              v-model="ruleForm.password"
+                              name="text"
+                              type="text"
+                              @focus="changeLabelFocus"
+                              @blur="changeLabelBlur"
+                              ></el-input>
                     </el-form-item>
 
-                    <span class="eyes"></span>
+                    <span
+                    class="eyes"
+                     @click="showPassword"></span>
+                    <!-- <i class="eyes el-icon-view" v-show="isOpen"></i> -->
                   </div>
 
                     <el-button type="primary" class="refer-btn">登陆</el-button>
@@ -70,22 +88,22 @@
 
                 <!-- 验证码登陆 -->
                 <el-tab-pane label="验证码登陆" name="second">
-<el-form
-                  :model="ruleForm"
-                  :rules="rules"
-                  ref="ruleForm"
+                <el-form
+                  :model="codeForm"
+                  :rules="codeRules"
+                  ref="codeForm"
                   >
                   <!-- 手机号 -->
                   <div class="uni-input-group">
                         <span
                         class="uni-label"
-                        :class="{'active': isLabelActive == 'phone'}"
+                        :class="{'active': isLabelActive == 'phone' || codeForm.phone != ''}"
                         @click="inputGroupClick"
                         >手机号</span>
 
                         <el-form-item prop="phone"  class="uni-input">
                             <el-input
-                              v-model="ruleForm.name"
+                              v-model="codeForm.phone"
                               name="phone"
                               @focus="changeLabelFocus"
                               @blur="changeLabelBlur"
@@ -98,13 +116,13 @@
                   <div class="uni-input-group">
                         <span
                         class="uni-label"
-                        :class="{'active': isLabelActive == 'code'}"
+                        :class="{'active': isLabelActive == 'code' || codeForm.code != ''}"
                         @click="inputGroupClick"
                         >验证码</span>
 
                         <el-form-item prop="code" class="uni-input">
                             <el-input
-                              v-model="ruleForm.password"
+                              v-model="codeForm.code"
                               name="code"
                               @focus="changeLabelFocus"
                               @blur="changeLabelBlur"
@@ -113,7 +131,14 @@
 
                     </el-form-item>
 
-                    <el-button round class="uni-code">获取验证码</el-button>
+                    <el-button
+                    round
+                    class="uni-code"
+                    @click="getCode(60)"
+                    :disabled="isTimer"
+                    >
+                    {{!isTimer ? '获取验证码' : `${timerCount}s`}}
+                    </el-button>
                   </div>
 
                     <el-button type="primary" class="refer-btn">登陆</el-button>
@@ -151,6 +176,10 @@ export default {
       activeName: 'first',
       isActive: false,
       isLabelActive: '',
+      timerCount: 60,
+      timer: null,
+      isTimer: false,
+      isOpen: false,
       ruleForm: {
         name: '',
         password: '',
@@ -159,7 +188,34 @@ export default {
         name: [
           {
             required: true,
-            message: '请输入活动名称',
+            message: '请输入身份证',
+            trigger: 'blur',
+          },
+        ],
+        password: [
+          {
+            required: true,
+            message: '请输入密码',
+            trigger: 'blur',
+          },
+        ],
+      },
+      codeForm: {
+        phone: '',
+        code: '',
+      },
+      codeRules: {
+        phone: [
+          {
+            required: true,
+            message: '请输入手机号',
+            trigger: 'blur',
+          },
+        ],
+        code: [
+          {
+            required: true,
+            message: '请输入验证码',
             trigger: 'blur',
           },
         ],
@@ -186,12 +242,37 @@ export default {
     changeLabelBlur() {
       this.isLabelActive = '';
     },
+    // 验证码
+    getCode(timeCount) {
+      this.$refs.codeForm.validateField('phone', (errorMessage) => {
+        if (errorMessage === '') {
+          if (!this.timer) {
+            this.timerCount = timeCount;
+            this.isTimer = true;
+
+            this.timer = setInterval(() => {
+              if (this.timerCount > 0 && this.timerCount <= timeCount) {
+                this.timerCount -= 1;
+              } else {
+                this.isTimer = false;
+                clearInterval(this.timer); // 清除定时器
+                this.timer = null;
+              }
+            }, 1000);
+          }
+        }
+      });
+    },
+    // 显示密码
+    showPassword() {
+      this.isOpen = !this.isOpen;
+    },
     // 提交
     refer() {
-      this.$message({
-        message: '成功',
-        type: 'success',
-      });
+      // this.$message({
+      //   message: '成功',
+      //   type: 'success',
+      // });
     },
   },
 };
@@ -208,6 +289,19 @@ export default {
     padding-left:0;
     padding-right:0;
   }
+  .uni-tabs{
+        padding:0 70px;
+        .el-tabs__nav-scroll{
+          display:flex;
+          justify-content: center;
+        }
+        .el-tabs__nav-wrap::after{
+          background:none;
+        }
+        .el-tabs__item{
+          font-size:18px;
+        }
+      }
 }
 </style>
 <style lang="scss" scoped>
@@ -259,17 +353,6 @@ export default {
           background: url('~@/assets/images/computer_icon.png') center no-repeat;
           background-size: 100% 100%;
           }
-        }
-      }
-
-      .uni-tabs{
-        padding:0 70px;
-        .el-tabs__nav-scroll{
-          display:flex;
-          justify-content: center;
-        }
-        .el-tabs__nav-wrap::after{
-          background:none;
         }
       }
     }
@@ -340,6 +423,7 @@ export default {
       width:104px;
       height:36px;
       font-size:12px;
+      z-index:$zindexTooltip;
     }
 
     .uni-wx-content{
