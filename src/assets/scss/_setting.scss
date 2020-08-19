@@ -26,6 +26,7 @@ $fontHeiTi:             "SimHei"; //黑体
 // 元素上下间距
 //-----------------------------------------------------	
 $baseGap:               20px !default;
+$headH: 132;
 
 
 // 基本颜色
@@ -35,13 +36,39 @@ $baseGap:               20px !default;
 // opacify($color, $amount)
 // mix($color1, $color2[, $amount])
 //-----------------------------------------------------	
-$primary:  #2E58FF !default;//主色
-$primary-red:#AB1212; // 红色
+$primary:  #2E58FF !default;// 蓝主题
+$primary-red:#AB1212; // 红主题
+
 $gray: #D4D9E2;
 $white:#fff;
-
 $textColor:#333;
 $bodyBgColor: $white !default;
+
+// 主题色
+$themes: (
+    blue: (
+        primary: $primary,
+        //header渐变
+        linear-gradient-start:#1284BF,
+        linear-gradient-end:#5F41A7,
+        // menu渐变
+        linear-gradient-start2:#39739C,
+        linear-gradient-end2:#325888,
+        // 按钮背景
+        bg-color: #1459A6,
+    ),
+    red: (
+        primary: $primary-red,
+        // //header渐变
+        linear-gradient-start:#ab1212,
+        linear-gradient-end:#900000,
+        // menu渐变
+        linear-gradient-start2:#C42221,
+        linear-gradient-end2:#AB1212,
+        // 按钮背景
+        bg-color: #900000,
+    ),
+);
 
 // link
 //-----------------------------------------------------	
@@ -70,7 +97,6 @@ $warningColor:               #514721 #FFF6BF #FFD324 !default;
 $errorColor:                 #8A1F11 #FBE3E4 #FBC2C4 !default;
 $successColor:               #264409 #E6EFC2 #C6D880 !default;
 $infoColor:                  #205791 #D5EDF8 #92CAE4 !default;
-
 
 // radius
 //-----------------------------------------------------	

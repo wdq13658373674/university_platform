@@ -149,7 +149,7 @@
                 <div class="tips">使用微信扫描二维码登陆</div>
               </div>
 
-              <div class="uni-tips">登陆不成功? <a class="link">联系管理员</a></div>
+              <div class="uni-tips">登陆不成功? <span class="link" @click="concatFunc">联系管理员</span></div>
             </div>
 
             <img class="unit-bootom-img" src="../../assets/images/login_bg2.png" alt="">
@@ -264,6 +264,15 @@ export default {
     showPassword() {
       this.isOpen = this.isOpen === 'password' ? 'text' : 'password';
     },
+    // 联系管理员
+    concatFunc(){
+      this.$confirm('400-038-8978', '联系管理员', {
+          confirmButtonText: '返回登陆',
+          // type: 'warning',
+          showCancelButton: false,
+          center: true
+        })
+    },
     // 提交
     refer() {
       // this.$message({
@@ -272,7 +281,7 @@ export default {
       // });
     },
     changeTheme(){
-      document.body.classList.toggle('red-theme')
+      document.body.classList.toggle('theme-red')
     }
   },
 };
@@ -306,13 +315,6 @@ export default {
 </style>
 <style lang="scss" scoped>
 @import '@/assets/scss/_setting.scss';
-.red-theme .wx{
-        color:$primary-red !important;
-      }
-      .red-theme .link{
-        color: $primary-red !important;
-      }
-
   .uni-login{
     display:flex;
     justify-content: center;

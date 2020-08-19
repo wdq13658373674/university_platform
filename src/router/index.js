@@ -1,7 +1,10 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import { getStore } from '@/utils/localStorage';
+// import { getStore } from '@/utils/localStorage';
 import Login from '@/views/login/index.vue';
+import Home from '@/views/home/index.vue';
+import UserCenter from '@/views/student/index.vue';
+import Template from '@/layout/template.vue';
 
 Vue.use(VueRouter);
 
@@ -18,6 +21,17 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     // component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
   },
+  {
+    path: '/',
+    component: Template,
+    children: [{
+      path: '/',
+      component: Home
+    },{
+      path: 'student',
+      component: UserCenter
+    },]
+  },
 ];
 
 const router = new VueRouter({
@@ -25,13 +39,13 @@ const router = new VueRouter({
 });
 
 // 路由守卫
-router.beforeEach((to, from, next) => {
+/* router.beforeEach((to, from, next) => {
   const token = getStore('token');
   if (to.name !== 'Login' && !token) {
     next({ name: 'Login' });
   } else {
     next();
   }
-});
+}); */
 
 export default router;

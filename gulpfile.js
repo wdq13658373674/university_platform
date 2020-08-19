@@ -5,7 +5,7 @@ var gulp = require('gulp')
 var cleanCSS = require('gulp-clean-css')
 var cssWrap = require('gulp-css-wrap')
 
-var customThemeName = '.red-theme'
+var customThemeName = '.theme-red'
 
 gulp.task('default', function() {
   return gulp.src( path.resolve('./src/theme/red/index.css'))
