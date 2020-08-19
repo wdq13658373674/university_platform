@@ -81,7 +81,7 @@ template {
 
 a {
   background: transparent; /* 1 */
-
+  color:$textColor;
   &:active,
   &:hover {
     outline: 0; /* 2 */

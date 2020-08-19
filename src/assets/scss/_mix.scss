@@ -7,15 +7,6 @@
     white-space: nowrap;
 }
 
-// icon图标
-@mixin uniIcon($url, $w:16px, $h:16px) {
-    width:$w;
-    height:$h;
-    display:inline-block;
-    background:url($url) center no-repeat;
-    background-size:auto 100%;
-}
-
 @mixin themeify {
     @each $theme-name, $theme-map in $themes {
         //!global 把局部变量强升为全局变量
@@ -46,7 +37,7 @@
     }
 }
 
-// 背景渐变
+// 背景横向渐变
 @mixin linearGradient($dr, $start, $end, $url, $startOp:0.9, $endOp:0.9) {
     @include themeify(){
         background:$url top right  no-repeat
@@ -55,7 +46,7 @@
     }
 }
 
-// 背景渐变
+// 背景纵向渐变
 @mixin linearGradient-v($start, $end, $url, $startOp:0.8, $endOp:0.9) {
     @include themeify(){
         background:$url center bottom  no-repeat

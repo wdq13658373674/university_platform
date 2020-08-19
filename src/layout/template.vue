@@ -4,7 +4,7 @@
     <Header/>
 
     <!-- content -->
-    <el-row type="flex" style="height:calc(100% -132px)">
+    <el-row type="flex" style="height:calc(100% -132px);background:#EAEEF7;">
       <el-col :xl="{span:3}" :lg="{span:4}">
         <Menu/>
       </el-col>

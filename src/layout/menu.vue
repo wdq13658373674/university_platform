@@ -5,7 +5,8 @@
       background-color="transparent"
       text-color="#fff"
       active-text-color="#fff"
-      default-openeds="[1,2,3,4,5,6,7]"
+      :default-openeds="defaultMenuIndex"
+      menu-trigger="click"
       >
 
       <el-menu-item index="1">
@@ -124,6 +125,11 @@
 <script>
 export default {
     name: 'Menu',
+    data(){
+      return {
+        defaultMenuIndex:['1','2','3','4','5','6','7']
+      }
+    }
 }
 </script>
 
