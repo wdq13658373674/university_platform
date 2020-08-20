@@ -49,9 +49,9 @@
           <p class="tit">
             <span>
               班主任信息
-              <i class="icon1"></i>
+              <i class="icon icon1"></i>
             </span>
-            <i class="icon2"></i>
+            <i class="icon icon2"></i>
           </p>
           <p class="name">程家旭 老师</p>
           <p class="phone">
@@ -72,9 +72,7 @@
               <p class="num">837</p>
             </div>
             <p>
-              <el-progress 
-              percentage="50"
-              ></el-progress>
+              <ComponentProgress percentage="50%"/>
             </p>
           </div>
         </div>
@@ -87,7 +85,7 @@
               <p class="num">837</p>
             </div>
             <p>
-              <el-progress percentage="50"></el-progress>
+              <ComponentProgress percentage="100%"/>
             </p>
           </div>
         </div>
@@ -133,12 +131,12 @@
             <div class="content">
               <div class="normal-list">
                 <p class="item">
-                <router-link to="" class="link">练习中心</router-link>
-                <router-link to="" class="link">课程中心</router-link>
+                <router-link to="" class="link icon1">练习中心</router-link>
+                <router-link to="" class="link icon2">课程中心</router-link>
                 </p>
                 <p class="item">
-                <router-link to="" class="link">考试中心</router-link>
-                <router-link to="" class="link">我的成绩</router-link>
+                <router-link to="" class="link icon3">考试中心</router-link>
+                <router-link to="" class="link icon4">我的成绩</router-link>
                 </p>
                 
               </div>
@@ -213,7 +211,7 @@
             <p class="title">最近的学习</p>
             <div class="content-list">
               <div class="content">
-                  <p class="date"><i class="icon"></i> <span>2020-08-10</span> <span>17:30</span></p>
+                  <p class="date"><i class="icon el-icon-time"></i> <span>2020-08-10</span> <span>17:30</span></p>
                 <div class="con">
                   <span>学习至</span>
                   <span class="name">马尔克斯主义</span>
@@ -221,12 +219,12 @@
                   <span>48.2%</span>
                   <span>用时</span>
                   <span>45分钟</span>
-                  <router-link class="link" to="">继续学习</router-link>
+                  <router-link class="link" to=""><i class="el-icon-video-play"></i>继续学习</router-link>
                 </div>
               </div>
 
               <div class="content">
-                  <p class="date"><i class="icon"></i> <span>2020-08-10</span> <span>17:30</span></p>
+                  <p class="date"><i class="icon el-icon-time"></i> <span>2020-08-10</span> <span>17:30</span></p>
                 <div class="con">
                   <span>学习至</span>
                   <span class="name">马尔</span>
@@ -234,7 +232,7 @@
                   <span>48.2%</span>
                   <span>用时</span>
                   <span>45分钟</span>
-                  <router-link class="link" to="">继续学习</router-link>
+                  <router-link class="link" to=""><i class="el-icon-video-play"></i>继续学习</router-link>
                 </div>
               </div>
             </div>
@@ -245,22 +243,22 @@
             <p class="title">最近的练习</p>
             <div class="content-list">
               <div class="content">
-                  <p class="date"><i class="icon"></i> <span>2020-08-10</span> <span>17:30</span></p>
+                  <p class="date"><i class="icon el-icon-time"></i> <span>2020-08-10</span> <span>17:30</span></p>
                 <div class="con">
                   <span class="name"> <span class="uni-mark">[章节练习]</span>马尔克斯主义</span>
                   <span>单项选择</span>
                   <span>7题/对3/错4</span>
-                  <router-link class="link" to="">继续学习</router-link>
+                  <router-link class="link" to=""><i class="el-icon-video-play"></i>继续学习</router-link>
                 </div>
               </div>
 
               <div class="content">
-                  <p class="date"><i class="icon"></i> <span>2020-08-10</span> <span>17:30</span></p>
+                  <p class="date"><i class="icon el-icon-time"></i> <span>2020-08-10</span> <span>17:30</span></p>
                 <div class="con">
                   <span class="name"><span class="uni-mark">[章节练习]</span>马尔</span>
                   <span>单项选择</span>
                   <span>7题/对3/错4</span>
-                  <router-link class="link" to="">继续学习</router-link>
+                  <router-link class="link" to=""><i class="el-icon-video-play"></i>继续学习</router-link>
                 </div>
               </div>
             </div>
@@ -271,8 +269,12 @@
 </template>
 
 <script>
+import ComponentProgress from '@/components/componentProgress';
 export default {
   name: "Home",
+  components:{
+    ComponentProgress
+  }
 };
 </script>
 
@@ -393,6 +395,37 @@ export default {
         margin-left: 20px;
         height: 80px;
 
+        .tit{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .icon{
+          display:inline-block;
+          width:20px;
+          height:14px;
+          vertical-align: middle;
+
+          &.icon1{
+          background: url('~@/assets/images/08.png') center 100% no-repeat;
+          }
+
+          &.icon2{
+            @include themeIcon('09');
+          }
+        }
+
+        
+
+        .icon3{
+          display:inline-block;
+          width:14px;
+          height:14px;
+          background: url('~@/assets/images/10.png') center 100% no-repeat;
+          vertical-align: middle;
+        }
+
         .tit {
           line-height: 30px;
           border-bottom: 1px solid $gray;
@@ -416,6 +449,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow: hidden;
 
     &.box3 {
       justify-content: start;
@@ -428,6 +462,7 @@ export default {
 
     .num {
       font-size: 50px;
+      line-height:50px;
     }
 
     .title {
@@ -494,7 +529,24 @@ export default {
 
     .link{
       display:block;
+      line-height:30px;
       font-size:16px;
+      padding-left:40px;
+      background-position: left center !important;
+      background-size:auto 100% !important;
+
+      &.icon1{
+        @include themeIcon('11');
+      }
+      &.icon2{
+        @include themeIcon('12');
+      }
+      &.icon3{
+        @include themeIcon('13');
+      }
+      &.icon4{
+        @include themeIcon('14');
+      }
 
       &:hover{
         @include fontColor('primary');
@@ -560,23 +612,31 @@ export default {
       }
       .date{
         color:$textGray;
+
+        .icon{
+          font-size: 18px;
+          vertical-align: middle;
+          @include fontColor('primary');
+        }
       }
 
       .con{
         display:flex;
         margin-top:10px;
+        margin-left:20px;
 
         .name{
           @extend %ellipse;
         }
         span{
           margin-right:10px;
+          @extend %ellipse;
         }
       }
     }
 
     .link{
-      width:90px;
+      width:80px;
       height:24px;
       line-height:24px;
       display:block;
@@ -586,6 +646,14 @@ export default {
       font-size:12px;
       border-radius: 5px;
       margin-left:10px;
+
+      &:hover{
+        color:#fff !important;
+      }
+
+      i{
+        margin-right:5px;
+      }
     }
 }
 </style>

@@ -52,6 +52,7 @@ $mainH: 995px;
 $themes: (
     blue: (
         primary: $primary,
+        themeIcon: 'blue',
         //header渐变
         linear-gradient-start:#1284BF,
         linear-gradient-end:#5F41A7,
@@ -60,9 +61,12 @@ $themes: (
         linear-gradient-end2:#325888,
         // 按钮背景
         bg-color: #1459A6,
+        // 菜单hover颜色
+        menu-hover-color:#3886B3
     ),
     red: (
         primary: $primary-red,
+        themeIcon: 'red',
         // //header渐变
         linear-gradient-start:#ab1212,
         linear-gradient-end:#900000,
@@ -71,6 +75,8 @@ $themes: (
         linear-gradient-end2:#AB1212,
         // 按钮背景
         bg-color: #900000,
+        // 菜单hover颜色
+        menu-hover-color:#AB1212
     ),
 );
 

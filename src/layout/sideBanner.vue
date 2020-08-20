@@ -3,7 +3,7 @@
     <div class="content-box">
       <!-- 公告通知 -->
       <div class="content">
-        <p class="title">公告通知</p>
+        <p class="title"><i class="icon icon1" style="width:18px;"></i>公告通知</p>
         <div class="article-list" style="margin-top:20px;">
           <router-link class="link" to=""><span class="tit">关于切实做好雷阵雨实做好雷阵雨实做好雷阵雨实做好雷阵雨天气防范应</span></router-link>
           <router-link class="link" to=""><span class="tit">关于切实做好雷阵雨实做好雷阵雨实做好雷阵雨实做好雷阵雨天气防范应</span></router-link>
@@ -17,14 +17,14 @@
       <div class="content">
         <p class="title">客服中心</p>
         <div class="phone-box">
-          <span class="phone">400-038-8978</span>
+          <span class="phone"><i class="icon"></i>400-038-8978</span>
         </div>
         <el-button class="answer-btn" type="primary" plain>有问题？咨询技术部</el-button>
       </div>
 
        <!-- 最新课程 -->
       <div class="content">
-        <p class="title">最新学习视频</p>
+        <p class="title"><i class="icon icon2"></i>最新学习视频</p>
         <router-link to="" class="img-link">
           <img src="../assets/images/login_bg4.png" alt="" width='100%' height='132'>
           <div class="row">
@@ -37,7 +37,7 @@
 
       <!-- 最新课程 -->
       <div class="content">
-        <p class="title">最新课程</p>
+        <p class="title"><i class="icon icon3"></i>最新课程</p>
         <div class="article-list">
           <router-link to="" class="link">
             <span class="tit">关于切实做好雷阵雨实做好雷阵雨实做好雷阵雨实做好雷阵雨天气防范应</span>
@@ -81,6 +81,11 @@ export default {
   height:$mainH;
   overflow: hidden;
 
+  .icon{
+      display:inline-block;
+      vertical-align: middle;
+  }
+
   .content-box{
     margin:20px;
     padding:0 30px;
@@ -97,6 +102,23 @@ export default {
     .title{
       font-size:16px;
       font-weight:bold;
+
+      .icon{
+        width:20px;
+        height:24px;
+        margin-right:10px;
+
+      &.icon1{
+        @include themeIcon('17');
+      }
+        &.icon2{
+        @include themeIcon('19');
+      }
+      &.icon3{
+        @include themeIcon('20');
+      }
+      }
+      
     }
 
     .article-list{
@@ -139,6 +161,13 @@ export default {
     .phone{
           font-size:21px;
           font-weight:bold;
+
+          .icon{
+            width:24px;
+            height:24px;
+            margin-right:10px;
+            @include themeIcon('18');
+          }
         }
   }
     

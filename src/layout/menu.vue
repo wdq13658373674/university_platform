@@ -23,18 +23,18 @@
         <div class="uni-submenu">
           <div class="tit"><i class="icon icon3"></i>学分认定课程</div>
           <div class="uni-submenu-list">
-            <router-link class="link" to="#">我的课程</router-link>
-            <router-link class="link" to="#">学习测试</router-link>
-            <router-link class="link" to="#">我的作业</router-link>
+            <router-link class="link" to="#"><span>我的课程</span></router-link>
+            <router-link class="link" to="#"><span>学习测试</span></router-link>
+            <router-link class="link" to="#"><span>我的作业</span></router-link>
           </div>
         </div>
 
         <div class="uni-submenu">
           <div class="tit"><i class="icon icon3"></i>非学分认定课程</div>
           <div class="uni-submenu-list">
-            <router-link class="link" to="#">我的课程</router-link>
-            <router-link class="link" to="#">学习练习</router-link>
-            <router-link class="link" to="#">我的作业</router-link>
+            <router-link class="link" to="#"><span>我的课程</span></router-link>
+            <router-link class="link" to="#"><span>学习练习</span></router-link>
+            <router-link class="link" to="#"><span>我的作业</span></router-link>
           </div>
         </div>
       </el-submenu>
@@ -47,7 +47,7 @@
 
         <div class="uni-submenu">
           <div class="uni-submenu-list">
-            <router-link class="link" to="#">我的课程</router-link>
+            <router-link class="link" to="#"><span>我的课程</span></router-link>
           </div>
         </div>
       </el-submenu>
@@ -59,12 +59,12 @@
         </template>
         <div class="uni-submenu">
           <div class="uni-submenu-list">
-            <router-link class="link" to="#">章节练习</router-link>
-            <router-link class="link" to="#">历年真题</router-link>
-            <router-link class="link" to="#">模拟试卷</router-link>
-            <router-link class="link" to="#">易错题题库</router-link>
-            <router-link class="link" to="#">做题记录</router-link>
-            <router-link class="link" to="#">考前集训</router-link>
+            <router-link class="link" to="#"><span>章节练习</span></router-link>
+            <router-link class="link" to="#"><span>历年真题</span></router-link>
+            <router-link class="link" to="#"><span>模拟试卷</span></router-link>
+            <router-link class="link" to="#"><span>易错题题库</span></router-link>
+            <router-link class="link" to="#"><span>做题记录</span></router-link>
+            <router-link class="link" to="#"><span>考前集训</span></router-link>
           </div>
         </div>
       </el-submenu>
@@ -77,11 +77,11 @@
 
         <div class="uni-submenu">
           <div class="uni-submenu-list">
-            <router-link class="link" to="#">考试报名</router-link>
-            <router-link class="link" to="#">我的考试</router-link>
-            <router-link class="link" to="#">考前模拟</router-link>
-            <router-link class="link" to="#">参与考试</router-link>
-            <router-link class="link" to="#">线下考试</router-link>
+            <router-link class="link" to="#"><span>考试报名</span></router-link>
+            <router-link class="link" to="#"><span>我的考试</span></router-link>
+            <router-link class="link" to="#"><span>考前模拟</span></router-link>
+            <router-link class="link" to="#"><span>参与考试</span></router-link>
+            <router-link class="link" to="#"><span>线下考试</span></router-link>
           </div>
         </div>
       </el-submenu>
@@ -94,7 +94,7 @@
 
         <div class="uni-submenu">
           <div class="uni-submenu-list">
-            <router-link class="link" to="#">教师信息</router-link>
+            <router-link class="link" to="#"><span>教师信息</span></router-link>
           </div>
         </div>
       </el-submenu>
@@ -107,12 +107,12 @@
 
         <div class="uni-submenu">
           <div class="uni-submenu-list">
-            <router-link class="link" to="#">个人信息</router-link>
-            <router-link class="link" to="#">我的成绩</router-link>
-            <router-link class="link" to="#">我的证书</router-link>
-            <router-link class="link" to="#">消息中心</router-link>
-            <router-link class="link" to="#">班务信息</router-link>
-            <router-link class="link" to="#">投诉建议</router-link>
+            <router-link class="link" to="#"><span>个人信息</span></router-link>
+            <router-link class="link" to="#"><span>我的成绩</span></router-link>
+            <router-link class="link" to="#"><span>我的证书</span></router-link>
+            <router-link class="link" to="#"><span>消息中心</span></router-link>
+            <router-link class="link" to="#"><span>班务信息</span></router-link>
+            <router-link class="link" to="#"><span>投诉建议</span></router-link>
           </div>
         </div>
       </el-submenu>
@@ -179,7 +179,7 @@ export default {
         background:url('~@/assets/images/02.png') center no-repeat;
       }
       &.icon3{
-        background:url('~@/assets/images/03.png') center no-repeat;
+        @include themeIcon('03');
       }
       &.icon4{
         background:url('~@/assets/images/04.png') center no-repeat;
@@ -196,9 +196,6 @@ export default {
       &.icon8{
         background:url('~@/assets/images/08.png') center no-repeat;
       }
-      &.icon9{
-        background:url('~@/assets/images/09.png') center no-repeat;
-      }
       &.icon10{
         background:url('~@/assets/images/21.png') center no-repeat;
       }
@@ -212,6 +209,7 @@ export default {
 
     .tit{
       margin-bottom:10px;
+      @extend %ellipse;
     }
 
     .uni-submenu-list{
@@ -222,8 +220,23 @@ export default {
         display:block;
         width:50%;
         color:#fff;
-        margin-bottom:9px;
+        margin-bottom:3px;
         font-size:13px;
+        @extend %ellipse;
+
+        &:hover{
+        color:#fff !important;
+      }
+
+        span{
+          display:inline-block;
+          padding:3px 5px;
+          border-radius: 2px;;
+        }
+
+        &:hover>span{
+          @include bgColor('menu-hover-color');
+        }
       }
     }
   }

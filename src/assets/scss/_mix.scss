@@ -33,7 +33,17 @@
 //背景颜色
 @mixin bgColor($color) {
     @include themeify(){
-        background:themed($color) !important;
+        background-color:themed($color) !important;
+    }
+}
+
+// 图标
+@mixin themeIcon($url, $themeIcon:'themeIcon'){
+    @include themeify(){
+        background-image:url('~@/assets/images/#{$url}_#{themed($themeIcon)}.png');
+        background-size:100%;
+        background-repeat: no-repeat;
+        background-position: center;;
     }
 }
 
