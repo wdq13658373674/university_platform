@@ -289,7 +289,7 @@ export default {
 
 <style lang="scss">
 // elementUi样式覆盖
-@import '@/assets/scss/_setting.scss';
+@import '@/assets/scss/_mix.scss';
 .uni-login{
   .el-input__inner{
     border:none;
@@ -314,13 +314,13 @@ export default {
 }
 </style>
 <style lang="scss" scoped>
-@import '@/assets/scss/_setting.scss';
+@import '@/assets/scss/_mix.scss';
   .uni-login{
     display:flex;
     justify-content: center;
     align-items: center;
     width:100%;
-    height:100%;
+    height:100vh;
     background:url('~@/assets/images/login_bg.png') #eaeef7 center no-repeat;
 
     .login-container{

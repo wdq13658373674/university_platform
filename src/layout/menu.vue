@@ -139,6 +139,10 @@ export default {
   .el-submenu__title i{
     color:#fff;
   }
+  .el-menu-item, .el-submenu__title{
+    height:44px;
+    line-height:44px;
+  }
   .el-menu-item{
     font-size:16px;
   }
@@ -155,7 +159,7 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/scss/_mix.scss';
 .uni-menu{
-  min-height:calc(100vh - 132px - 48px);
+    height:$mainH;
     @include linearGradient-v('linear-gradient-start2', 'linear-gradient-end2', url('~@/assets/images/menu_bg.png'));
     overflow: hidden;
     position:relative;
@@ -202,7 +206,7 @@ export default {
 
   .uni-submenu{
     color:#fff;
-    padding:20px 20px 10px;
+    padding:10px 20px;
     border-top:1px solid rgba($gray, 0.3);
     border-bottom:1px solid rgba($gray, 0.3);
 
@@ -218,7 +222,7 @@ export default {
         display:block;
         width:50%;
         color:#fff;
-        margin-bottom:10px;
+        margin-bottom:9px;
         font-size:13px;
       }
     }

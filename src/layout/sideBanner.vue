@@ -4,12 +4,12 @@
       <!-- 公告通知 -->
       <div class="content">
         <p class="title">公告通知</p>
-        <div class="article-list">
-          <router-link class="link" to="">关于切实做好雷阵雨实做好雷阵雨实做好雷阵雨实做好雷阵雨天气防范应</router-link>
-          <router-link class="link" to="">关于切实做好雷阵雨实做好雷阵雨实做好雷阵雨实做好雷阵雨天气防范应</router-link>
-          <router-link class="link" to="">关于切实做好雷阵雨实做好雷阵雨实做好雷阵雨实做好雷阵雨天气防范应</router-link>
-          <router-link class="link" to="">关于切实做好雷阵雨实做好雷阵雨实做好雷阵雨实做好雷阵雨天气防范应</router-link>
-          <router-link class="link" to="">关于切实做好雷阵雨实做好雷阵雨实做好雷阵雨实做好雷阵雨天气防范应</router-link>
+        <div class="article-list" style="margin-top:20px;">
+          <router-link class="link" to=""><span class="tit">关于切实做好雷阵雨实做好雷阵雨实做好雷阵雨实做好雷阵雨天气防范应</span></router-link>
+          <router-link class="link" to=""><span class="tit">关于切实做好雷阵雨实做好雷阵雨实做好雷阵雨实做好雷阵雨天气防范应</span></router-link>
+          <router-link class="link" to=""><span class="tit">关于切实做好雷阵雨实做好雷阵雨实做好雷阵雨实做好雷阵雨天气防范应</span></router-link>
+          <router-link class="link" to=""><span class="tit">关于切实做好雷阵雨实做好雷阵雨实做好雷阵雨实做好雷阵雨天气防范应</span></router-link>
+          <router-link class="link" to=""><span class="tit">关于切实做好雷阵雨实做好雷阵雨实做好雷阵雨实做好雷阵雨天气防范应</span></router-link>
         </div>
       </div>
 
@@ -25,40 +25,45 @@
        <!-- 最新课程 -->
       <div class="content">
         <p class="title">最新学习视频</p>
-        <router-link to="" class="img-link"><img src="../assets/images/login_bg4.png" alt="" width='100%' height='132'></router-link>
-        <ul class="article-list">
-          <li class="row">
-            <router-link class="link" to="">关于切实做好雷阵雨实做好雷阵雨实做好雷阵雨实做好雷阵雨天气防范应</router-link>
+        <router-link to="" class="img-link">
+          <img src="../assets/images/login_bg4.png" alt="" width='100%' height='132'>
+          <div class="row">
+            <span class="link" to="">关于切实做好雷阵雨实做好雷阵雨实做好雷阵雨实做好雷阵雨天气防范应</span>
             <span>李强</span>
-          </li>
-        </ul>
+          </div>
+        </router-link>
+       
       </div>
 
       <!-- 最新课程 -->
       <div class="content">
         <p class="title">最新课程</p>
-        <ul class="article-list">
-          <li class="row">
-            <router-link class="link" to="">关于切实做好雷阵雨实做好雷阵雨实做好雷阵雨实做好雷阵雨天气防范应</router-link>
-            <span>08-10</span>
-          </li>
-           <li class="row">
-            <router-link class="link" to="">关于切实做好雷阵雨实做好雷阵雨实做好雷阵雨实做好雷阵雨天气防范应</router-link>
-            <span>08-10</span>
-          </li>
-           <li class="row">
-            <router-link class="link" to="">关于切实做好雷阵雨实做好雷阵雨实做好雷阵雨实做好雷阵雨天气防范应</router-link>
-            <span>08-10</span>
-          </li>
-           <li class="row">
-            <router-link class="link" to="">关于切实做好雷阵雨</router-link>
-            <span>08-10</span>
-          </li>
-           <li class="row">
-            <router-link class="link" to="">关于切实做好雷阵雨实做好雷阵雨实做好雷阵雨实做好雷阵雨天气防范应</router-link>
-            <span>08-10</span>
-          </li>
-        </ul>
+        <div class="article-list">
+          <router-link to="" class="link">
+            <span class="tit">关于切实做好雷阵雨实做好雷阵雨实做好雷阵雨实做好雷阵雨天气防范应</span>
+            <span class="date">08-10</span>
+          </router-link>
+          <router-link to="" class="link">
+            <span class="tit">关于切实做好雷阵雨实做好雷阵雨实做好雷阵雨实做好雷阵雨天气防范应</span>
+            <span class="date">08-10</span>
+          </router-link>
+          <router-link to="" class="link">
+            <span class="tit">关于切实做好雷阵雨实做好雷阵雨实做好雷阵雨实做好雷阵雨天气防范应</span>
+            <span class="date">08-10</span>
+          </router-link>
+          <router-link to="" class="link">
+            <span class="tit">关于切实做好雷阵雨实做好雷阵雨实做好雷阵雨实做好雷阵雨天气防范应</span>
+            <span class="date">08-10</span>
+          </router-link>
+          <router-link to="" class="link">
+            <span class="tit">关于切实做好雷阵雨实做好雷阵雨实做好雷阵雨实做好雷阵雨天气防范应</span>
+            <span class="date">08-10</span>
+          </router-link>
+          <router-link to="" class="link">
+            <span class="tit">关于切实做好雷阵雨实做好雷阵雨实做好雷阵雨实做好雷阵雨天气防范应</span>
+            <span class="date">08-10</span>
+          </router-link>
+        </div>
       </div>
     </div>
   </div>
@@ -73,6 +78,9 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/scss/_mix.scss';
 .uni-side-banner{
+  height:$mainH;
+  overflow: hidden;
+
   .content-box{
     margin:20px;
     padding:0 30px;
@@ -83,7 +91,7 @@ export default {
 
   .content{
     border-bottom: 1px solid #DDDDDD;
-    margin:0 30px;
+    // margin:0 30px;
     padding:30px 0;
 
     .title{
@@ -92,26 +100,38 @@ export default {
     }
 
     .article-list{
-      line-height:24px;
-
-      .row{
-        display:flex;
+      margin-top:10px;
         .link{
-          flex: 1;
+          display:flex;
+          justify-content: space-between;
+          color:$textColor;
+          margin-top:6px;
+
+          .tit{
+            flex:1;
+            @extend %ellipse;
+          }
+
+          .date{
+            color:$textGray;
+          }
         }
       }
-    }
 
+    
     .img-link{
       display:block;
-      margin:10px 0;
-    }
-
-    .link{
-      display:block;
-      font-size:13px;
+      margin:10px 0 0;
       color:$textColor;
-      @extend %ellipse;
+
+      .row{
+        display: flex;
+        margin-top:5px;
+        .link{
+          flex:1;
+          @extend %ellipse;
+        }
+      }
     }
 
   .phone-box{

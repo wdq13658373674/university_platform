@@ -27,7 +27,7 @@
 //字体颜色
 @mixin fontColor($color) {
     @include themeify(){
-        color:themed($color);
+        color:themed($color) !important;
     }
 }
 //背景颜色
