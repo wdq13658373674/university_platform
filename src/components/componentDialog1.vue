@@ -12,13 +12,16 @@
       >
         <!--content -->
         <div class="content" :class="iconPosition">
+          <!-- 图标 -->
           <i class="icon success" v-if="icon == 'success'"></i>
           <i class="icon fail" v-else-if="icon == 'fail'"></i>
           <i class="icon account" v-else-if="icon == 'account'"></i>
 
+          <!-- title -->
           <div class="title" v-if="title">{{title}}</div>
           <div class="tips" v-if="tips" v-html="tips"></div>
 
+          <!-- score -->
           <div class="score-row" v-if="score">
             <span class="score">{{score}}</span>
             分
@@ -27,23 +30,21 @@
         
         <!-- footer -->
          <div slot="footer" class="dialog-footer">
-           <!-- footerType=1 -->
-           <div v-if="footerType == 1">
-              <el-button class="btn reset-btn">重做</el-button>
-              <el-button 
-                type="primary" 
-                class="btn refer-btn"
-              >提交测试</el-button>
-           </div>
+           <el-button 
+           class="btn" 
+            v-if="showCancelBtn"
+           :class="cancelClass">
+           {{cancelText}}
+           </el-button>
 
-          <!-- footerType=2 -->
-          <el-button 
-            type="primary" 
-            class="confirm-btn"
-            :class="footerColor=='blue' ? 'blue' : 'red'"
-            v-else-if="footerType == 2 || footerType == 3"
-          >我知道了</el-button>
-        </div>
+              <el-button 
+                v-if="showConfirmBtn"
+                type="primary" 
+                class="btn"
+                :class="confirmClass"
+                @click="confirm"
+              >{{confirmText}}</el-button>
+         </div>
       </el-dialog>
   </div>
 </template>
@@ -73,17 +74,33 @@ export default {
     score:{
       default:0
     },
-    // 底部按钮type，按钮颜色
-    footerType:{
-      default: 1
-    },
-    footerColor:{
-      default: 'blue'
-    },
     // 图标显示位置
     iconPosition:{
       default:'left-Top'
-    }
+    },
+    // 按钮文本
+    cancelText:{
+      default:'重做'
+    },
+    confirmText:{
+      default:'提交测试'
+    },
+    // 按钮样式
+    cancelClass:{
+      default:''
+    },
+    confirmClass:{
+      default:''
+    },
+    // 按钮显示隐藏
+    showCancelBtn:{
+      type:Boolean,
+      default:true
+    },
+    showConfirmBtn:{
+      type:Boolean,
+      default:true
+    },
   },
   data(){
     return {
@@ -98,6 +115,9 @@ export default {
   methods:{
     close(){
       this.$emit('close',false);
+    },
+    confirm(){
+      this.$emit('confirm');
     }
   }
 }
@@ -216,18 +236,6 @@ export default {
     .btn{
       width:115px;
       height:36px;
-    }
-
-    .confirm-btn{
-      width:170px;
-      height:64px;
-      border-radius: 32px;
-      font-size:24px;
-      border:0;
-
-      &.red{
-        background:$red;
-      }
     }
 }
 </style>

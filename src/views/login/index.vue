@@ -166,9 +166,11 @@
           icon="fail"
           iconPosition="center"
           tips="是否需要查看答案"
-          footerType='1'
           :visible="dialogVisible"
+          confirmText="查看答案"
+          :showCancelBtn="false"
           @close="closeDialog1"
+          @confirm="confirmDialog1"
           ></ComponentDialog1>
   </div>
 </template>
@@ -304,6 +306,9 @@ export default {
     //test
     closeDialog1(val){
       this.dialogVisible = val;
+    },
+    confirmDialog1(){
+
     }
   },
 };
