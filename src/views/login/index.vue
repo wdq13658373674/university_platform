@@ -300,8 +300,8 @@ export default {
     },
     // 提交
     refer() {
-      this.dialogVisible = true;
-      // this.$router.push('/');
+      // this.dialogVisible = true;
+      this.$router.push('/');
     },
     //test
     closeDialog1(val){
