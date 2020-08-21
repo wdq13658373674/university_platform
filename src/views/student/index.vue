@@ -1,12 +1,15 @@
 <template>
-  <div class="uni-home">
-    <div>学生个人信息</div>
+  <div class="uni-student">
+    
   </div>
 </template>
 
 <script>
 export default {
-  name: 'UserCenter'
+  name: 'UserCenter',
+  data(){
+    
+  }
 }
 </script>
 

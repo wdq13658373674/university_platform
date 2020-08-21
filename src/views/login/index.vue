@@ -1,7 +1,6 @@
 <template>
   <div class="uni-login">
       <div class="login-container">
-        <button @click="changeTheme">切换主题</button>
             <!--login  -->
             <div class="login-content">
                 <div class="wx">
@@ -73,7 +72,11 @@
                     <!-- <i class="eyes el-icon-view" v-show="isOpen"></i> -->
                   </div>
 
-                    <el-button type="primary" class="refer-btn">登陆</el-button>
+                    <el-button 
+                    type="primary" 
+                    class="refer-btn"
+                     @click="refer"
+                    >登陆</el-button>
                   </el-form>
                 </el-tab-pane>
 
@@ -132,7 +135,10 @@
                     </el-button>
                   </div>
 
-                    <el-button type="primary" class="refer-btn">登陆</el-button>
+                    <el-button 
+                    type="primary" 
+                    class="refer-btn"
+                    >登陆</el-button>
                   </el-form>
                 </el-tab-pane>
               </el-tabs>
@@ -154,18 +160,31 @@
 
             <img class="unit-bootom-img" src="../../assets/images/login_bg2.png" alt="">
           </div>
+
+          <!-- test 对话框测试 -->
+          <ComponentDialog1 
+          icon="fail"
+          iconPosition="center"
+          tips="是否需要查看答案"
+          footerType='1'
+          :visible="dialogVisible"
+          @close="closeDialog1"
+          ></ComponentDialog1>
   </div>
 </template>
 
 <script>
 import { phoneReg } from '@/utils/regExp';
+// import ComponentDialog from '@/components/componentDialog1';
 
 export default {
   name: 'Login',
   components: {
+    // ComponentDialog
   },
   data() {
     return {
+      dialogVisible: false,//test
       activeName: 'first',
       isActive: false,
       isLabelActive: '',
@@ -266,22 +285,25 @@ export default {
     },
     // 联系管理员
     concatFunc(){
-      this.$confirm('400-038-8978', '联系管理员', {
+      this.$confirm(
+        '400-038-8978', 
+        '联系管理员', 
+        {
+          customClass: 'uni-message-box',
           confirmButtonText: '返回登陆',
           // type: 'warning',
           showCancelButton: false,
-          center: true
-        })
+          center: true,
+        }).then(()=>{}).catch(()=>{})
     },
     // 提交
     refer() {
-      // this.$message({
-      //   message: '成功',
-      //   type: 'success',
-      // });
+      this.dialogVisible = true;
+      // this.$router.push('/');
     },
-    changeTheme(){
-      document.body.classList.toggle('theme-red')
+    //test
+    closeDialog1(val){
+      this.dialogVisible = val;
     }
   },
 };
@@ -290,6 +312,10 @@ export default {
 <style lang="scss">
 // elementUi样式覆盖
 @import '@/assets/scss/_mix.scss';
+.uni-message-box{
+      width:250px;
+    }
+
 .uni-login{
   .el-input__inner{
     border:none;

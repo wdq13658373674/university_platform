@@ -36,6 +36,12 @@
         background-color:themed($color) !important;
     }
 }
+//边框颜色
+@mixin borderColor($color) {
+    @include themeify(){
+        border-color:themed($color) !important;
+    }
+}
 
 // 图标
 @mixin themeIcon($url, $themeIcon:'themeIcon'){
@@ -48,16 +54,16 @@
 }
 
 // 背景横向渐变
-@mixin linearGradient($dr, $start, $end, $url, $startOp:0.9, $endOp:0.9) {
+@mixin linearGradient($start, $end, $url, $startOp:0.9, $endOp:0.9) {
     @include themeify(){
         background:$url top right  no-repeat
-          , linear-gradient($dr, rgba(themed($start), $startOp), rgba(themed($end), $endOp));
+          , linear-gradient(to right, rgba(themed($start), $startOp), rgba(themed($end), $endOp));
           background-size: auto 100%;
     }
 }
 
 // 背景纵向渐变
-@mixin linearGradient-v($start, $end, $url, $startOp:0.8, $endOp:0.9) {
+@mixin linearGradient-v($start, $end, $url, $startOp:0.9, $endOp:0.9) {
     @include themeify(){
         background:$url center bottom  no-repeat
           , linear-gradient(to bottom, rgba(themed($start), $startOp), rgba(themed($end), $endOp));

@@ -72,7 +72,7 @@
               <p class="num">837</p>
             </div>
             <p>
-              <ComponentProgress percentage="50%"/>
+              <ComponentProgress :percentage="percentage2"/>
             </p>
           </div>
         </div>
@@ -85,7 +85,7 @@
               <p class="num">837</p>
             </div>
             <p>
-              <ComponentProgress percentage="100%"/>
+              <ComponentProgress :percentage="percentage"/>
             </p>
           </div>
         </div>
@@ -274,6 +274,16 @@ export default {
   name: "Home",
   components:{
     ComponentProgress
+  },
+  data(){
+    return {
+      percentage1: 0,
+      percentage2: 0
+    }
+  },
+  mounted(){
+    this.percentage = '100%';
+    this.percentage2 = '50%';
   }
 };
 </script>

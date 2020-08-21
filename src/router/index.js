@@ -26,6 +26,7 @@ const routes = [
     component: Template,
     children: [{
       path: '/',
+      name: 'home',
       component: Home
     },{
       path: 'student',

@@ -2,7 +2,7 @@
   <div class="uni-header">
     <button style="position:absolute;top:0;left:0;z-index:999;color:#000;" @click="changeTheme">切换主题</button>
     <el-row :gutter="20" type="flex" align="middle" style="height:100%;">
-      <el-col :xl="{span:16,offset:3}" :lg="{span:16,offset:3}">
+      <el-col :xl="{span:17,offset:2}" :lg="{span:17,offset:2}">
 
         <div class="content">
           <img height='67' src="../assets/images/logo.png" alt="">
@@ -101,7 +101,7 @@ export default {
 .uni-header{
     height:132px;
     color:$white;
-    @include linearGradient(163deg, 'linear-gradient-start', 'linear-gradient-end', url('~@/assets/images/top_bg.png'));
+    @include linearGradient('linear-gradient-start', 'linear-gradient-end', url('~@/assets/images/top_bg.png'));
 
     .content{
       display:flex;

@@ -118,7 +118,7 @@
       </el-submenu>
     </el-menu>
 
-    <el-button type="primary" class="exit-btn"><i class="icon icon7"></i>退出登录</el-button>
+    <el-button type="primary" class="exit-btn" @click="exit"><i class="icon icon7"></i>退出登录</el-button>
   </div>
 </template>
 
@@ -128,6 +128,11 @@ export default {
     data(){
       return {
         defaultMenuIndex:['1','2','3','4','5','6','7']
+      }
+    },
+    methods:{
+      exit(){
+        this.$router.push('/login');
       }
     }
 }
@@ -160,7 +165,7 @@ export default {
 @import '@/assets/scss/_mix.scss';
 .uni-menu{
     height:$mainH;
-    @include linearGradient-v('linear-gradient-start2', 'linear-gradient-end2', url('~@/assets/images/menu_bg.png'));
+    @include linearGradient-v('linear-gradient-start', 'linear-gradient-end', url('~@/assets/images/menu_bg.png'));
     overflow: hidden;
     position:relative;
     padding-bottom:48px;

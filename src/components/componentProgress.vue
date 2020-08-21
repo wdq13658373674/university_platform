@@ -33,7 +33,7 @@ export default {
         @include themeIcon('progress');
         // @include bgColor('primary');
         background-size:auto 109% !important;
-        transition: all .4s;
+        transition: all .6s ease-in-out;
     }
 
     .progress-persent{
@@ -49,7 +49,7 @@ export default {
         font-size:12px;
         text-align: center;
         line-height:40PX;
-         transition: all .4s;
+         transition: all .6s ease-in-out;
     }
 }
 </style>
