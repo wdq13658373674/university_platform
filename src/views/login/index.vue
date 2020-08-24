@@ -315,11 +315,36 @@ export default {
 </script>
 
 <style lang="scss">
-// elementUi样式覆盖
 @import '@/assets/scss/_mix.scss';
 .uni-message-box{
-      width:250px;
+      width:350px !important;
+      border-radius: 20px;
+      background:url('~@/assets/images/concat_bg.png') center no-repeat;
+      background-size:100% auto;
+
+      .el-message-box__title{
+        font-size:16px;
+        color:$grayDark;
+      }
+
+      .el-message-box__content{
+        font-size:30px;
+        font-weight:bold;
+      }
+
+      .el-button{
+        width:140px;
+        height:48px;
+        font-size:16px;
+        margin-top:20px;
+        border-radius: 8px;
+      }
     }
+</style>
+
+<style lang="scss">
+// elementUi样式覆盖
+@import '@/assets/scss/_mix.scss';
 
 .uni-login{
   .el-input__inner{

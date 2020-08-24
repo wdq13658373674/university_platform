@@ -543,7 +543,7 @@ export default {
       font-size:16px;
       padding-left:40px;
       background-position: left center !important;
-      background-size:auto 100% !important;
+      background-size:auto 30px !important;
 
       &.icon1{
         @include themeIcon('11');

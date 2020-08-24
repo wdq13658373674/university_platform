@@ -62,13 +62,13 @@ export default {
     icon:{
       default:'success'
     },
-    // titlt下方提示语
-    tips:{
-      default:''
-    },
     // title
     title:{
       default: ''
+    },
+    // titlt下方提示语
+    tips:{
+      default:''
     },
     // 分数
     score:{
